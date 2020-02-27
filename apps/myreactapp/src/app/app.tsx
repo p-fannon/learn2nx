@@ -7,6 +7,8 @@ import star from './star.svg';
 
 import { Route, Link } from 'react-router-dom';
 
+import Text from '../../../../libs/ui/src/lib/text/text';
+
 const StyledApp = styled.div`
   /*
  * Remove template code below
@@ -153,6 +155,7 @@ export const App = () => {
         <h1>Welcome to myreactapp!</h1>
       </header>
       <main>
+        <Text>I made this!</Text>
         <h2>Resources &amp; Tools</h2>
         <p>Thank you for using and showing some ♥ for Nx.</p>
         <div className="flex github-star-container">

@@ -17,6 +17,9 @@
     "myreactapp-e2e": {
       "tags": [],
       "implicitDependencies": ["myreactapp"]
+    },
+    "ui": {
+      "tags": []
     }
   }
 }
