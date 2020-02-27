@@ -1,8 +1,118 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "myreactapp": {
+      "root": "apps/myreactapp",
+      "sourceRoot": "apps/myreactapp/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/myreactapp",
+            "index": "apps/myreactapp/src/index.html",
+            "main": "apps/myreactapp/src/main.tsx",
+            "polyfills": "apps/myreactapp/src/polyfills.ts",
+            "tsConfig": "apps/myreactapp/tsconfig.app.json",
+            "assets": [
+              "apps/myreactapp/src/favicon.ico",
+              "apps/myreactapp/src/assets"
+            ],
+            "styles": [],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/myreactapp/src/environments/environment.ts",
+                  "with": "apps/myreactapp/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "myreactapp:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "myreactapp:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/myreactapp/.eslintrc",
+            "tsConfig": [
+              "apps/myreactapp/tsconfig.app.json",
+              "apps/myreactapp/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/myreactapp/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/myreactapp/jest.config.js",
+            "tsConfig": "apps/myreactapp/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "myreactapp-e2e": {
+      "root": "apps/myreactapp-e2e",
+      "sourceRoot": "apps/myreactapp-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/myreactapp-e2e/cypress.json",
+            "tsConfig": "apps/myreactapp-e2e/tsconfig.e2e.json",
+            "devServerTarget": "myreactapp:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "myreactapp:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/myreactapp-e2e/.eslintrc",
+            "tsConfig": ["apps/myreactapp-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/myreactapp-e2e/**"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/react"
   },
   "schematics": {
     "@nrwl/workspace": {
@@ -17,9 +127,15 @@
     },
     "@nrwl/react": {
       "application": {
-        "linter": "eslint"
+        "style": "styled-components",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "styled-components"
       },
       "library": {
+        "style": "styled-components",
         "linter": "eslint"
       }
     },
@@ -56,5 +172,6 @@
         "linter": "eslint"
       }
     }
-  }
+  },
+  "defaultProject": "myreactapp"
 }
