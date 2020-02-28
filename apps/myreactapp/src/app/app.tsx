@@ -7,7 +7,7 @@ import star from './star.svg';
 
 import { Route, Link } from 'react-router-dom';
 
-import Text from '../../../../libs/ui/src/lib/text/text';
+import { Text } from '@cfsboom/ui';
 
 const StyledApp = styled.div`
   /*

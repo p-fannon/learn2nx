@@ -22,9 +22,7 @@ const StyledText = styled.div`
 
 export const Text = (props: TextProps) => {
   return (
-    <StyledText>
-      <span>I made this!</span>
-    </StyledText>
+    <StyledText {...props} />
   );
 };
 
