@@ -1,28 +1,20 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-
-import { BrowserRouter } from 'react-router-dom';
+import { render, cleanup } from '@testing-library/react';
 
 import App from './app';
 
 describe('App', () => {
+  afterEach(cleanup);
+
   it('should render successfully', () => {
-    const { baseElement } = render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    );
+    const { baseElement } = render(<App />);
 
     expect(baseElement).toBeTruthy();
   });
 
-  it('should have a greeting as the title', () => {
-    const { getByText } = render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    );
+  it('should have a header as the title', () => {
+    const { getByText } = render(<App />);
 
-    expect(getByText('Welcome to myreactapp!')).toBeTruthy();
+    expect(getByText('Bookstore')).toBeTruthy();
   });
 });
