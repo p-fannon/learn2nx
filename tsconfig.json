@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@cfsboom/ui": ["libs/ui/src/index.ts"]
+      "@cfsboom/ui": ["libs/ui/src/index.ts"],
+      "@cfsboom/books/feature": ["libs/books/feature/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
