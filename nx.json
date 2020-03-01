@@ -23,6 +23,12 @@
     },
     "books-feature": {
       "tags": []
+    },
+    "books-data-access": {
+      "tags": []
+    },
+    "books-ui": {
+      "tags": []
     }
   }
 }

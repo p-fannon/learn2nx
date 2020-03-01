@@ -17,7 +17,9 @@
     "baseUrl": ".",
     "paths": {
       "@cfsboom/ui": ["libs/ui/src/index.ts"],
-      "@cfsboom/books/feature": ["libs/books/feature/src/index.ts"]
+      "@cfsboom/books/feature": ["libs/books/feature/src/index.ts"],
+      "@cfsboom/books/data-access": ["libs/books/data-access/src/index.ts"],
+      "@cfsboom/books/ui": ["libs/books/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

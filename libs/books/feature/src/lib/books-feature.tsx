@@ -1,19 +1,23 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { getBooks } from '@cfsboom/books/data-access';
+import { Books, Book } from '@cfsboom/books/ui';
 
-/* eslint-disable-next-line */
-export interface BooksFeatureProps {}
+export const BooksFeature = () => {
+  const [books, setBooks] = useState([]);
 
-const StyledBooksFeature = styled.div`
-  color: pink;
-`;
+  useEffect(() => {
+    getBooks().then(setBooks);
+  }, [
+    // This effect runs only once on first component render
+    // so we declare it as having no dependent state.
+  ]);
 
-export const BooksFeature = (props: BooksFeatureProps) => {
   return (
-    <StyledBooksFeature>
-      <h1>Welcome to books-feature component!</h1>
-    </StyledBooksFeature>
+    <>
+      <h2>Books</h2>
+      <Books books={books} onAdd={book => alert(`Added ${book.title}`)} />
+    </>
   );
 };
 
