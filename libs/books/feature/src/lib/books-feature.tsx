@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { getBooks } from '@cfsboom/books/data-access';
-import { Books, Book } from '@cfsboom/books/ui';
+import { Books } from '@cfsboom/books/ui';
+import { SharedBook } from '@cfsboom/shared-models';
 
 export const BooksFeature = () => {
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState([] as SharedBook[]);
 
   useEffect(() => {
     getBooks().then(setBooks);

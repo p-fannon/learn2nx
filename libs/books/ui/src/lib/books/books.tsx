@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Book } from '../book/book';
+import { SharedBook } from '@cfsboom/shared-models';
 
 export interface BooksProps {
-  books: any[];
- // New prop
-  onAdd: (book: any) => void;
+  books: SharedBook[];
+  onAdd: (book: SharedBook) => void;
 }
 
 const StyledBooks = styled.div`

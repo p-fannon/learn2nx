@@ -21,9 +21,7 @@ const StyledText = styled.div`
 `;
 
 export const Text = (props: TextProps) => {
-  return (
-    <StyledText {...props} />
-  );
+  return <StyledText {...props} />;
 };
 
 export default Text;

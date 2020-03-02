@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Button } from '@cfsboom/ui';
+import { SharedBook } from '@cfsboom/shared-models';
 
 export interface BookProps {
-  book: any;
-  // New prop
-  onAdd: (book: any) => void;
+  book: SharedBook;
+  onAdd: (book: SharedBook) => void;
 }
 
 const StyledBook = styled.div`
@@ -45,6 +45,5 @@ export const Book = ({ book, onAdd }: BookProps) => {
     </StyledBook>
   );
 };
-
 
 export default Book;
